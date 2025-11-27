@@ -1,0 +1,15 @@
+﻿@model List<MvcSeyehatSitesi_20._10._2025.Models.Siniflar.Blog>
+
+<div class="box1-left">
+    @foreach (var x in Model.OrderByDescending(b => b.ID).Take(3).OrderBy(b => b.ID))
+    {
+        <div class="bot-img">
+            <img src="@x.BlogImage" style="width:120px; height:65px" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <p>@(string.IsNullOrEmpty(x.Aciklama) ? "" : (x.Aciklama.Length > 70 ? x.Aciklama.Substring(0, 70) + "..." : x.Aciklama))</p>
+        </div>
+        <div class="clear"></div>
+    }
+</div>
+

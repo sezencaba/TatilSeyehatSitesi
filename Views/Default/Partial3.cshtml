@@ -1,0 +1,19 @@
+﻿@model List<MvcSeyehatSitesi_20._10._2025.Models.Siniflar.Blog>
+
+<div class="padding">
+    <h4>En Popüler 10 Blog</h4>
+
+    @{
+        int i = 0;
+    }
+
+    @foreach (var x in Model)
+    {
+
+        <ul class="list list-pad">
+            <li class="list-bg"><span>@{i++;}@i.</span><a href="/Blogs/BlogDetay/@x.ID">@x.Baslik</a></li>
+    </ul>
+
+    }
+    <a href="/Blogs/Index" class="link1">Tüm Blogları Gör</a>
+</div>

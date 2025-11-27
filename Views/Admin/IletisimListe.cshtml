@@ -1,0 +1,66 @@
+﻿@model List<MvcSeyehatSitesi_20._10._2025.Models.Siniflar.iletisim>
+
+@{
+    ViewData["Title"] = "IletisimListe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Gelen Kutusu</h1>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Ad Soyad</th>
+        <th>Mail</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+
+        <tr style="@(x.OkunduMu ? "background-color: #f0f0f0;" : "background-color: #fff;")">
+            <td>@x.ID</td>
+            <td>@x.AdSoyad</td>
+            <td>@x.Mail</td>
+            <td>@x.Konu</td>
+            <td>
+                @if (x.Mesaj != null && x.Mesaj.Length > 50)
+                {
+                    <span>@x.Mesaj.Substring(0, 50)...</span>
+                }
+                else
+                {
+                    <span>@x.Mesaj</span>
+                }
+            </td>
+            <td>
+                @if (x.OkunduMu)
+                {
+                    <span style="color: green; font-weight: bold;">✓ Okundu</span>
+                }
+                else
+                {
+                    <span style="color: red; font-weight: bold;">✗ Okunmadı</span>
+                }
+            </td>
+            <td>
+                <a href="/Admin/MesajDetay/@x.ID" class="btn btn-info btn-sm">Detay</a>
+                <a href="/Admin/MesajOkunduDegistir/@x.ID" class="btn btn-warning btn-sm">
+                    @(x.OkunduMu ? "Okunmadı Yap" : "Okundu Yap")
+                </a>
+                <a href="/Admin/MesajSil/@x.ID" class="btn btn-danger btn-sm">Sil</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+
+
+
+

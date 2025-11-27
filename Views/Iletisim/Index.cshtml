@@ -1,0 +1,66 @@
+﻿@model MvcSeyehatSitesi_20._10._2025.Models.Siniflar.iletisim
+
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="contact">
+    <div class="wrap">
+        <div class="contact-top" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h3>İletişim Formu</h3>
+            <p>Merhaba! Bloğumla ilgili önerilerini benimle aşağıdaki formdaki bilgileri doldurarak paylaşabilirsin...</p>
+        </div>
+        
+        @if (TempData["ContactSuccess"] != null)
+        {
+            <div style="background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 4px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                @TempData["ContactSuccess"]
+            </div>
+        }
+        else if (TempData["ContactError"] != null)
+        {
+            <div style="background-color: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 4px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                @TempData["ContactError"]
+            </div>
+        }
+
+        <div class="form" style="float: none; margin: 0 auto; width: 100%; max-width: 800px;">
+            <form asp-controller="Iletisim" asp-action="IletisimGonder" method="post" class="cmxform" id="contactForm">
+                @Html.AntiForgeryToken()
+                
+                <div>
+                    <input type="text" name="AdSoyad" class="textbox" placeholder="Ad Soyad" required style="width: 100%;" />
+                    <span asp-validation-for="AdSoyad" style="color: red;"></span>
+                </div>
+                
+                <div>
+                    <input type="email" name="Mail" class="textbox" placeholder="E-Mail" required style="width: 100%;" />
+                    <span asp-validation-for="Mail" style="color: red;"></span>
+                </div>
+                
+                <div>
+                    <input type="text" name="Konu" class="textbox" placeholder="Konu" required style="width: 100%;" />
+                    <span asp-validation-for="Konu" style="color: red;"></span>
+                </div>
+                
+                <div class="form1" style="width: 100%; float: none;">
+                    <div>
+                        <textarea name="Mesaj" placeholder="Mesajınız" rows="5" required style="width: 100%;"></textarea>
+                        <span asp-validation-for="Mesaj" style="color: red;"></span>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div style="text-align: center;">
+                    <button type="submit" class="read" style="background: none; border: none; color: inherit; cursor: pointer; padding: 0;">
+                        <span class="read">Gönder</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>

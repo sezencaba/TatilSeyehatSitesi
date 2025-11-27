@@ -1,0 +1,51 @@
+@model MvcSeyehatSitesi_20._10._2025.Models.Siniflar.Hakkimizda   
+
+@{
+    ViewData["Title"] = "Hakkımızda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Hakkımızda Güncelleme Sayfası</h1>
+<br />
+
+@if (TempData["HakkimizdaSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["HakkimizdaSuccess"]
+    </div>
+}
+
+@using(Html.BeginForm("HakkimizdaGuncelle","Admin",FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    
+    <div class="form-group">
+        @Html.LabelFor(x => x.FotoUrl)
+        @Html.TextBoxFor(x => x.FotoUrl, new { @class = "form-control", placeholder = "Fotoğraf URL'si giriniz" })
+        @Html.ValidationMessageFor(x => x.FotoUrl, "", new { @class = "text-danger" })
+        <small class="form-text text-muted">Örnek: https://example.com/foto.jpg veya /images/foto.jpg</small>
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(x => x.Aciklama)
+        @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control", placeholder = "Hakkımızda açıklamasını giriniz" })
+        @Html.ValidationMessageFor(x => x.Aciklama, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    
+    @if (!string.IsNullOrEmpty(Model.FotoUrl))
+    {
+        <div class="form-group">
+            <label>Mevcut Fotoğraf:</label>
+            <br />
+            <img src="@Model.FotoUrl" alt="Hakkımızda Fotoğrafı" style="max-width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 10px;" />
+        </div>
+        <br />
+    }
+    
+    <button type="submit" class="btn btn-success">Hakkımızda Bilgilerini Güncelle</button>
+    <a href="/Admin/Index" class="btn btn-secondary">Geri Dön</a>
+}
+
+

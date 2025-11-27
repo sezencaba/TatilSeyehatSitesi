@@ -1,0 +1,23 @@
+﻿@using MvcSeyehatSitesi_20._10._2025.Models.Siniflar
+@model List<Hakkimizda>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+	<div class="wrap">
+		<div class="about">
+			<h3>Hakkımızda</h3>
+			@foreach (var item in Model)
+			{
+				@if (!string.IsNullOrEmpty(item.FotoUrl))
+				{
+					<img src="@item.FotoUrl" alt="Hakkımızda Fotoğrafı" />
+				}
+			
+				<p>@item.Aciklama</p>
+            }
+		</div>
+	</div>
+</div>

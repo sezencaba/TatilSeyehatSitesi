@@ -1,0 +1,87 @@
+﻿@using MvcSeyehatSitesi_20._10._2025.Models.Siniflar
+@model BlogYorum
+@{
+    ViewData["Title"] = "Blog Detay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<!-- Web2 CSS dosyalarını ekle -->
+<link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+
+<style>
+    .blog-detail-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+    }
+    .single-main {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .single-grid {
+        width: 100% !important;
+    }
+    .single-grid img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .single-grid h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .single-grid p {
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    .comment-list {
+        margin: 30px 0;
+    }
+</style>
+
+<div class="single">
+    <div class="container">
+        <div class="blog-detail-container">
+            <div class="single-main">
+            <div class="single-grid">
+                @foreach (var x in Model.Deger1)
+                {
+                    <img src="@x.BlogImage" alt="" style="margin-bottom:20px"/>
+                    <h2>@x.Baslik</h2>
+                    <p>@x.Aciklama</p>
+                }
+                
+            </div>
+
+            @foreach(var y in Model.Deger2)
+            {
+
+                <ul class="comment-list">
+
+                    <li>
+                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                        <div class="desc">
+                            <p>@y.KullaniciAdi : @y.Yorum </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+
+                </ul>
+
+            }
+        
+            @{
+                var currentBlogId = Model.Deger1.FirstOrDefault()?.ID ?? 0;
+                var yorumModel = new Yorumlar { BlogID = currentBlogId };
+            }
+            @await Html.PartialAsync("YorumYap", yorumModel)
+            </div>
+        </div>
+    </div>
+</div>

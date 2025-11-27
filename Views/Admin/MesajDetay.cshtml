@@ -1,0 +1,42 @@
+@model MvcSeyehatSitesi_20._10._2025.Models.Siniflar.iletisim
+
+@{
+    ViewData["Title"] = "Mesaj Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Mesaj Detayı</h1>
+
+<div class="card" style="margin-top: 20px;">
+    <div class="card-body">
+        <h5 class="card-title">Gönderen: @Model.AdSoyad</h5>
+        <p class="card-text"><strong>E-Mail:</strong> @Model.Mail</p>
+        <p class="card-text"><strong>Konu:</strong> @Model.Konu</p>
+        <p class="card-text"><strong>Mesaj:</strong></p>
+        <div class="card-text" style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+            @Model.Mesaj
+        </div>
+        <p class="card-text">
+            <small class="text-muted">
+                <strong>Durum:</strong> 
+                @if (Model.OkunduMu)
+                {
+                    <span style="color: green; font-weight: bold;">✓ Okundu</span>
+                }
+                else
+                {
+                    <span style="color: red; font-weight: bold;">✗ Okunmadı</span>
+                }
+            </small>
+        </p>
+        <div style="margin-top: 20px;">
+            <a href="/Admin/IletisimListe" class="btn btn-secondary">Geri Dön</a>
+            <a href="/Admin/MesajOkunduDegistir/@Model.ID" class="btn btn-warning">
+                @(Model.OkunduMu ? "Okunmadı Yap" : "Okundu Yap")
+            </a>
+            <a href="/Admin/MesajSil/@Model.ID" class="btn btn-danger" onclick="return confirm('Bu mesajı silmek istediğinize emin misiniz?');">Sil</a>
+        </div>
+    </div>
+</div>
+
+

@@ -87,7 +87,6 @@ wwwroot\weblogin Tema\w3layouts-License.txt
 wwwroot\web\about.html
 wwwroot\web\contact.html
 wwwroot\web\css\slider.css
-wwwroot\web\css\style.css
 wwwroot\web\destinations.html
 wwwroot\web\images\about_banner.jpg
 wwwroot\web\images\arrows.png
@@ -122,3 +121,4 @@ wwwroot\web\index.html
 wwwroot\web\js\jquery.min.js
 wwwroot\web\js\responsiveslides.min.js
 wwwroot\web\w3layouts-License.txt
+wwwroot\web\css\style.css

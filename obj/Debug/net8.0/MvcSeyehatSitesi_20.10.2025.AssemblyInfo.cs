@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MvcSeyehatSitesi_20.10.2025")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f2467afd42565806b9e67a696fc966dd72d6b9e")]
 [assembly: System.Reflection.AssemblyProductAttribute("MvcSeyehatSitesi_20.10.2025")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MvcSeyehatSitesi_20.10.2025")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

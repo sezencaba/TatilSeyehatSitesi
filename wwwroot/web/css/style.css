@@ -33,7 +33,7 @@ html {
 }
 body{
 	font-family:Arial, Helvetica, sans-serif;
-	min-height: 100%;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -372,13 +372,25 @@ span.doller{
 	padding:20px 0;
 }
 .about img{
-	margin-bottom: 20px;
+	margin: 20px 0 30px 0;
 	width: 100%;
 	max-width: 100%;
 	height: auto;
+	min-height: 400px;
+	object-fit: cover;
 	display: block;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.about-main-image {
+	width: 100% !important;
+	max-width: 100% !important;
+	min-height: 500px !important;
+	height: auto !important;
+	object-fit: cover !important;
+	margin: 25px 0 35px 0 !important;
+	border-radius: 12px !important;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
 }
 .about p, .contact-top p{
 	color:#555;
@@ -421,6 +433,8 @@ span.doller{
 	padding: 20px;
 	clear: both;
 	margin-top: auto;
+	width: 100%;
+	flex-shrink: 0;
 }
 .copy{
 	text-align: center;
@@ -763,6 +777,11 @@ span.doller{
     width: 50%;
 }
 }
+@media(max-width:768px){
+.about-main-image {
+	min-height: 350px !important;
+}
+}
 @media(max-width:480px){
 .grid1-l-img {
     width: 30%;
@@ -867,6 +886,9 @@ h2 {
 }
 }
 @media(max-width:320px){
+.about-main-image {
+	min-height: 250px !important;
+}
 .grid1-l-img {
     width: 19%;
     margin-top: 0;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zex6yIJsZ44=",
+  "dgSpecHash": "B5cNT4BJons=",
   "success": true,
-  "projectFilePath": "C:\\tatil_seyehat\\MvcSeyehatSitesi_20.10.2025\\MvcSeyehatSitesi_20.10.2025.csproj",
+  "projectFilePath": "C:\\Users\\halil\\OneDrive\\Belgeler\\GitHub\\TatilSeyehatSitesi\\MvcSeyehatSitesi_20.10.2025.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\halil\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\halil\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
